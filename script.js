@@ -1,29 +1,29 @@
-const keys = document.querySelectorAll('.key')
-const sounds = document.querySelectorAll('audio')
+const keys = document.querySelectorAll('.key');
+const sounds = document.querySelectorAll('audio');
+
+function addClass(key) {
+  key.classList.add('playing');
+}
+
+function playSound(audio) {
+  audio.currentTime = 0;
+  audio.play();
+}
+
+function removeClass(key) {
+  key.classList.remove('playing');
+}
 
 document.addEventListener('keydown', (e) => {
-  keys.forEach(key => {
+  keys.forEach((key) => {
     if (e.keyCode === +key.dataset.key) {
-      addClass(key)
-      sounds.forEach(sound => {
+      addClass(key);
+      sounds.forEach((sound) => {
         if (e.keyCode === +sound.dataset.key) {
-          playSound(sound)
+          playSound(sound);
         }
-      })
-      setTimeout(() => removeClass(key), 100)
+      });
+      setTimeout(() => removeClass(key), 100);
     }
-  })
-})
-
-function addClass (key) {
-  key.classList.add('playing')
-}
-
-function removeClass (key) {
-  key.classList.remove('playing')
-}
-
-function playSound (audio) {
-  audio.currentTime = 0
-  audio.play()
-}
+  });
+});
