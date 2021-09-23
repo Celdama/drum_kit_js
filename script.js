@@ -1,14 +1,14 @@
 const keys = document.querySelectorAll('.key')
-const audios = document.querySelectorAll('audio')
+const sounds = document.querySelectorAll('audio')
 
 document.addEventListener('keydown', (e) => {
   const keyDown = e.keyCode
   keys.forEach(key => {
     if (keyDown === +key.dataset.key) {
       addClass(key)
-      audios.forEach(audio => {
-        if (keyDown === +audio.dataset.key) {
-          playSound(audio)
+      sounds.forEach(sound => {
+        if (keyDown === +sound.dataset.key) {
+          playSound(sound)
         }
       })
       setTimeout(() => removeClass(key), 100)
