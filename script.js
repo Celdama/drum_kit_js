@@ -2,12 +2,11 @@ const keys = document.querySelectorAll('.key')
 const sounds = document.querySelectorAll('audio')
 
 document.addEventListener('keydown', (e) => {
-  const keyDown = e.keyCode
   keys.forEach(key => {
-    if (keyDown === +key.dataset.key) {
+    if (e.keyCode === +key.dataset.key) {
       addClass(key)
       sounds.forEach(sound => {
-        if (keyDown === +sound.dataset.key) {
+        if (e.keyCode === +sound.dataset.key) {
           playSound(sound)
         }
       })
